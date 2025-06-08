@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -125,6 +126,32 @@
     text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
   }
 
+  /* Enhanced interactive animations */
+  .glitch-effect:hover {
+    animation: glitch 0.3s ease-in-out;
+  }
+
+  .float-animation {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .pulse-neon {
+    animation: pulse-neon 2s ease-in-out infinite;
+  }
+
+  .bounce-gentle {
+    animation: bounce-gentle 2s ease-in-out infinite;
+  }
+
+  .rotate-hover:hover {
+    animation: rotate-slow 2s linear infinite;
+  }
+
+  .scale-hover:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+  }
+
   /* Neo-brutalist specific styles */
   .neo-brutalist-card {
     border: 6px solid black;
@@ -134,11 +161,77 @@
   }
 
   .neo-brutalist-card:hover {
-    transform: rotate(0deg);
+    transform: rotate(0deg) scale(1.02);
     box-shadow: 6px 6px 0px black;
   }
 
   .chunky-text {
     text-shadow: 4px 4px 0px black;
   }
+
+  .interactive-shadow:hover {
+    box-shadow: 4px 4px 0px black;
+    transform: translate(4px, 4px);
+  }
+
+  .neon-border:hover {
+    border-color: hsl(var(--electric-blue));
+    box-shadow: 0 0 20px hsl(var(--electric-blue));
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-neon {
+  0%, 100% { 
+    box-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+    opacity: 1;
+  }
+  50% { 
+    box-shadow: 0 0 5px currentColor, 0 0 10px currentColor;
+    opacity: 0.8;
+  }
+}
+
+@keyframes bounce-gentle {
+  0%, 100% { transform: translateY(0px); }
+  25% { transform: translateY(-5px); }
+  50% { transform: translateY(0px); }
+  75% { transform: translateY(-2px); }
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes glitch {
+  0%, 100% { transform: translate(0); }
+  10% { transform: translate(-2px, -2px); }
+  20% { transform: translate(2px, 2px); }
+  30% { transform: translate(-2px, 2px); }
+  40% { transform: translate(2px, -2px); }
+  50% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  70% { transform: translate(-2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  90% { transform: translate(-2px, -2px); }
+}
+
+@keyframes slide-in-left {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slide-in-right {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fade-in-up {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
